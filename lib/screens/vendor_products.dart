@@ -1,5 +1,6 @@
 import 'package:be_project/app_text_styles.dart';
 import 'package:be_project/models/vendor_model.dart';
+import 'package:be_project/providers/map_utils.dart';
 import 'package:be_project/providers/vendor_data_provider.dart';
 import 'package:be_project/widgets/custom/custom_app_bar.dart';
 import 'package:be_project/widgets/cards/product_card.dart';
@@ -106,7 +107,18 @@ class _VendorProductsState extends State<VendorProducts> {
                                 ],
                               ),
                             ],
-                          )
+                          ),
+                          ElevatedButton(
+                              onPressed: () {
+                                MapUtils.openMap(
+                                    double.parse(widget.vendorModel.latitude!),
+                                    double.parse(
+                                        widget.vendorModel.longitude!));
+                              },
+                              child: Text(
+                                "Open In Map",
+                                style: AppTextStyles.lato20White500,
+                              ))
                         ]),
                       ),
                     ),
