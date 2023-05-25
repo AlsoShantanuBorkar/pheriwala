@@ -72,8 +72,8 @@ class VendorDataProvider extends ChangeNotifier {
 
   Future<void> notifyUsers() async {
     await vendorApi.notifyNearby(vendorModel.id!, {
-      "title": "From ${vendorModel.vendorname}",
-      "body": "Launched New Products",
+      "title": "${vendorModel.vendorname} has arrived near you!",
+      "body": "",
     });
   }
 

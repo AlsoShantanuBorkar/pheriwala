@@ -5,6 +5,7 @@ import 'package:be_project/providers/vendor_data_provider.dart';
 import 'package:be_project/screens/auth/login_screen.dart';
 import 'package:be_project/screens/auth/onboarding/onboarding_profile_image.dart';
 import 'package:be_project/screens/live_queue.dart';
+import 'package:be_project/screens/vendor_profile.dart';
 import 'package:be_project/widgets/custom/custom_app_bar.dart';
 import 'package:be_project/widgets/new_product_dialog.dart';
 import 'package:flutter/material.dart';
@@ -107,18 +108,17 @@ class _MainBodyState extends State<MainBody> {
               ),
             ),
             IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const OnboardingProfileImage()));
-              },
-              icon: const Icon(
-                Icons.image_outlined,
-                color: AppColorScheme.primary,
-                size: 30,
-              ),
-            ),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ProfileScreen()));
+                },
+                icon: const Icon(
+                  Icons.person_2_outlined,
+                  color: AppColorScheme.primary,
+                  size: 30,
+                )),
             IconButton(
               onPressed: () {
                 showDialog(

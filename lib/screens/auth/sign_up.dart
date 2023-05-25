@@ -1,6 +1,7 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:be_project/app_text_styles.dart';
+import 'package:be_project/images.dart';
 import 'package:be_project/main.dart';
 import 'package:be_project/providers/location_provider.dart';
 import 'package:be_project/providers/user_data_provider.dart';
@@ -43,30 +44,10 @@ class _SignupScreenState extends State<SignupScreen> {
         key: _key,
         child: ListView(
           children: [
+            Image.asset(ImagePNG.pheriwala_hero),
             const SizedBox(
-              height: 50,
+              height: 10,
             ),
-            Container(
-                alignment: Alignment.centerLeft,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16.0,
-                  vertical: 16,
-                ),
-                child: Column(
-                  children: [
-                    Text(
-                      "Welcome To Pheriwala",
-                      style: AppTextStyles.lato20Black500,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Connecting Street Vendors and Customers",
-                      style: AppTextStyles.lato20Black500,
-                    ),
-                  ],
-                )),
             Container(
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.symmetric(

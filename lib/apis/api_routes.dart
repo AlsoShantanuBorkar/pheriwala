@@ -1,4 +1,4 @@
-const String userRoute = "https://streetvendor-production.up.railway.app/user/";
+const String userRoute = "https://average-leg-production.up.railway.app/user/";
 
 const String vendorRoute =
-    "https://streetvendor-production.up.railway.app/vendor/";
+    "https://average-leg-production.up.railway.app/vendor/";

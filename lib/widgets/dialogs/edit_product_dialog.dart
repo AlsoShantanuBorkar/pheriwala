@@ -21,8 +21,10 @@ class _EditProductDialogState extends State<EditProductDialog> {
 
   @override
   void initState() {
-    nameController = TextEditingController();
-    priceController = TextEditingController();
+    nameController =
+        TextEditingController(text: widget.productModel.productName);
+    priceController =
+        TextEditingController(text: widget.productModel.price.toString());
     super.initState();
   }
 

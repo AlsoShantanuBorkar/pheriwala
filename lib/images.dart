@@ -5,6 +5,7 @@ class ImagePNG {
   static const String loginScreenImage4 = "assets/login_image_4.png";
   static const String toggleActiveIcon = 'assets/toggle_active_icon.png';
   static const String googleLogo = "assets/google_logo.png";
+  static const String pheriwala_hero = "assets/pheriwala_hero.png";
 }
 
 class ImageSVG {

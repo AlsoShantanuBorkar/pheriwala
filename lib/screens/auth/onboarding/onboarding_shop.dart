@@ -1,7 +1,9 @@
 import 'package:be_project/app_text_styles.dart';
 import 'package:be_project/colors.dart';
+import 'package:be_project/images.dart';
 import 'package:be_project/providers/vendor_data_provider.dart';
 import 'package:be_project/screens/auth/onboarding/onboarding_profile_image.dart';
+import 'package:be_project/screens/main_body.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,30 +29,10 @@ class _OnboardingShopState extends State<OnboardingShop> {
       body: ListView(
         padding: const EdgeInsets.all(0),
         children: [
+          Image.asset(ImagePNG.pheriwala_hero),
           const SizedBox(
-            height: 50,
+            height: 10,
           ),
-          Container(
-              alignment: Alignment.centerLeft,
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16.0,
-                vertical: 16,
-              ),
-              child: Column(
-                children: [
-                  Text(
-                    "Welcome To Pheriwala",
-                    style: AppTextStyles.lato20Black500,
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "Connecting Street Vendors and Customers",
-                    style: AppTextStyles.lato20Black500,
-                  ),
-                ],
-              )),
           const SizedBox(
             height: 20,
           ),
@@ -171,8 +153,7 @@ class _OnboardingShopState extends State<OnboardingShop> {
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        const OnboardingProfileImage(),
+                                    builder: (context) => const MainBody(),
                                   ),
                                 )
                               }
