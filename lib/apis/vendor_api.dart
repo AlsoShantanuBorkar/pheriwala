@@ -113,8 +113,7 @@ class VendorApi {
 
     var request = http.MultipartRequest(
       'POST',
-      Uri.parse(
-          'https://streetvendor-production.up.railway.app/vendor/upload/$username'),
+      Uri.parse('${vendorRoute}upload/$username'),
     );
 
     request.files.add(await http.MultipartFile.fromPath(
@@ -143,5 +142,20 @@ class VendorApi {
           "content-type": "application/json",
           "accept": "application/json",
         });
+  }
+
+  Future<void> updateVendor(int vendorId, Map<String, dynamic> data) async {
+    http.Response response = await http.post(
+      Uri.parse(
+        "${vendorRoute}updateprofile/$vendorId",
+      ),
+      body: jsonEncode(data),
+      headers: {
+        "content-type": "application/json",
+        "accept": "application/json",
+      },
+    );
+    log("${vendorRoute}updateprofile/$vendorId" + jsonEncode(data));
+    print(response.body);
   }
 }

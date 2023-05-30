@@ -185,7 +185,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     Icons.person_outline,
                     color: Colors.black,
                   ),
-                  hintText: "John Doe",
+                  hintText: "Ramesh Kumar",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),

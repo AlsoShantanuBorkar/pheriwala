@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:be_project/widgets/custom/custom_app_bar.dart';
 import 'package:be_project/widgets/custom/custom_icon_button.dart';
 import 'dart:io';
 import 'package:be_project/app_text_styles.dart';
@@ -50,6 +51,10 @@ class _OnboardingProfileImageState extends State<OnboardingProfileImage> {
     final VendorDataProvider vendorDataProvider =
         Provider.of<VendorDataProvider>(context);
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Upload Image"),
+        backgroundColor: AppColorScheme.primary,
+      ),
       body: SizedBox(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -119,12 +124,7 @@ class _OnboardingProfileImageState extends State<OnboardingProfileImage> {
                     if (image != null) {
                       await vendorDataProvider.uploadImage(image!).then(
                             (value) => vendorDataProvider.isLoggedin
-                                ? Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => const MainBody(),
-                                    ),
-                                  )
+                                ? Navigator.pop(context)
                                 : showDialog(
                                     context: context,
                                     builder: (context) => const AlertDialog(

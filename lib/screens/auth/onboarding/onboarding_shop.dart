@@ -64,7 +64,7 @@ class _OnboardingShopState extends State<OnboardingShop> {
                   Icons.person,
                   color: Colors.black,
                 ),
-                hintText: "John's Tea Shop",
+                hintText: "Ramesh's Tea Shop",
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -112,7 +112,7 @@ class _OnboardingShopState extends State<OnboardingShop> {
                   ),
                   onPressed: () {},
                 ),
-                hintText: "Westside ,Santacruz",
+                hintText: "Narhe ,Pune",
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),

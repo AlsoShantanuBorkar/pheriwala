@@ -1,3 +1,4 @@
+import 'package:be_project/apis/api_routes.dart';
 import 'package:be_project/app_text_styles.dart';
 import 'package:be_project/models/vendor_model.dart';
 import 'package:be_project/providers/map_utils.dart';
@@ -48,13 +49,22 @@ class _VendorProductsState extends State<VendorProducts> {
                         padding: const EdgeInsets.all(16.0),
                         child: Column(children: [
                           CircleAvatar(
-                            radius: 50,
+                            radius: 70,
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(50),
-                              child: Image.network(
-                                "https://streetvendor-production.up.railway.app/vendor/download/${widget.vendorModel.vendorname}",
-                                width: 100,
-                                height: 100,
+                              borderRadius: BorderRadius.circular(100),
+                              child: AspectRatio(
+                                aspectRatio: 1,
+                                child: Image(
+                                  image: NetworkImage(
+                                      "${vendorRoute}download/${widget.vendorModel.vendorname}"),
+                                  fit: BoxFit.fill,
+                                  errorBuilder: (context, object, trace) {
+                                    return const CircleAvatar(
+                                      radius: 70,
+                                      backgroundColor: Colors.grey,
+                                    );
+                                  },
+                                ),
                               ),
                             ),
                           ),

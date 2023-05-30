@@ -2,6 +2,7 @@ import 'package:be_project/app_text_styles.dart';
 import 'package:be_project/colors.dart';
 import 'package:be_project/providers/vendor_data_provider.dart';
 import 'package:be_project/screens/auth/onboarding/onboarding_profile_image.dart';
+import 'package:be_project/widgets/dialogs/update_vendor_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -28,14 +29,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
           children: [
             CircleAvatar(
               radius: 70,
-              child: Image.network(
-                "https://average-leg-production.up.railway.app/vendor/download/${value.vendorModel.vendorname}",
-                errorBuilder: (context, object, trace) {
-                  return const CircleAvatar(
-                    radius: 70,
-                    backgroundColor: Colors.grey,
-                  );
-                },
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(100),
+                child: AspectRatio(
+                  aspectRatio: 1,
+                  child: Image(
+                    image: NetworkImage(
+                        "https://average-leg-production.up.railway.app/vendor/download/${value.vendorModel.vendorname}"),
+                    fit: BoxFit.fill,
+                    errorBuilder: (context, object, trace) {
+                      return const CircleAvatar(
+                        radius: 70,
+                        backgroundColor: Colors.grey,
+                      );
+                    },
+                  ),
+                ),
               ),
             ),
             const SizedBox(
@@ -57,6 +66,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 },
                 child: Text(
                   "Upload Photo",
+                  style: AppTextStyles.lato20White500,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              height: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColorScheme.primary,
+                ),
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) =>
+                        EditVendorDialog(vendorModel: value.vendorModel),
+                  );
+                },
+                child: Text(
+                  "Update Details",
                   style: AppTextStyles.lato20White500,
                 ),
               ),

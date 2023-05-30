@@ -168,4 +168,26 @@ class VendorDataProvider extends ChangeNotifier {
     _isLoading = false;
     notifyListeners();
   }
+
+  Future<void> updateVendor(int id, Map<String, dynamic> data) async {
+    _isLoading = true;
+    notifyListeners();
+    vendorModel.vendorname = data["vendorusername"];
+    vendorModel.vendorcontact = data["vendorcontact"];
+    try {
+      final SharedPreferences sharedPreferencesInstance =
+          await SharedPreferences.getInstance();
+      isarInstance.writeTxn(() async {
+        await isarInstance.vendorModels.clear();
+        _sharedPrefId = await isarInstance.vendorModels.put(_vendorModel!);
+        await sharedPreferencesInstance.setInt('vendorAuthID', _sharedPrefId);
+      });
+    } catch (e) {
+      log(e.toString());
+    }
+    await vendorApi.updateVendor(vendorModel.id!, data);
+
+    _isLoading = false;
+    notifyListeners();
+  }
 }
